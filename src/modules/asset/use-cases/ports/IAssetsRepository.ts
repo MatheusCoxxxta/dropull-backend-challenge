@@ -8,4 +8,5 @@ export default interface IAssetsRepository {
     imageUrl,
     tokenIpfs,
   }: IStoreAssetDto): Promise<IAsset>;
+  listAll(): Promise<Array<IAsset>>;
 }

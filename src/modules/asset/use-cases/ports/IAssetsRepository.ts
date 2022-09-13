@@ -6,6 +6,6 @@ export default interface IAssetsRepository {
     name,
     description,
     imageUrl,
-    tokenIfps,
+    tokenIpfs,
   }: IStoreAssetDto): Promise<IAsset>;
 }

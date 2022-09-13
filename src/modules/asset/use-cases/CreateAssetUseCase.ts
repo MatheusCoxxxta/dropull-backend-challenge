@@ -27,8 +27,6 @@ export default class CreateAssetUseCase implements IUseCase {
 
     const tokenIpfs = await this.assetManager.pinFile(validAsset.imageUrl);
 
-    console.log(tokenIpfs);
-
     let asset: IAsset = {} as IAsset;
 
     try {

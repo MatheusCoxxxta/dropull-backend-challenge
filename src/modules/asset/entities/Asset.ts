@@ -12,7 +12,7 @@ export default class Asset {
   private constructor(name: string, description: string, imageUrl: string) {
     this._name = name;
     this._description = description;
-    this._imageUrl = `/static/files/${imageUrl}`;
+    this._imageUrl = `static/files/${imageUrl}`;
   }
 
   public static create(

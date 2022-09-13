@@ -8,13 +8,15 @@ describe('CreateAssetUseCase', () => {
   });
 
   it('should break due to validation: name', async () => {
-    expect(
+    try {
       await createAssetUseCase.execute({
         name: '',
         description: 'Description here',
         imageUrl: 'https://picsum.photos/200/300',
-      }),
-    ).toThrow('Name required');
+      });
+    } catch (error: any) {
+      expect(error.message).toBe('Name is required!');
+    }
   });
 
   it('should break due to validation: description');

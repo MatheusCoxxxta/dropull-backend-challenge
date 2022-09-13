@@ -9,9 +9,9 @@ let assetsRepository: IAssetsRepository;
 let assetManager: IAssetManager;
 
 describe('CreateAssetUseCase', () => {
-  assetManager = new FakeAssetManager();
-  assetsRepository = new FakeAssetRepository();
   beforeEach(() => {
+    assetManager = new FakeAssetManager();
+    assetsRepository = new FakeAssetRepository();
     createAssetUseCase = new CreateAssetUseCase(assetsRepository, assetManager);
   });
 

@@ -29,6 +29,6 @@ export default class AssetsRepository implements IAssetsRepository {
   }
 
   async listAll(): Promise<Array<IAsset>> {
-    return this.repository.find();
+    return this.repository.find({ relations: ['nfts'] });
   }
 }

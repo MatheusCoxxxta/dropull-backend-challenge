@@ -2,8 +2,10 @@ import { Router } from 'express';
 import CreateAssetController from '../controllers/CreateAssetController';
 import { Joi, Segments, celebrate } from 'celebrate';
 import { imageUpload } from '../config/multer';
+import ListAssetsController from '../controllers/ListAssetsController';
 
 const createAssetController = new CreateAssetController();
+const listAssetsController = new ListAssetsController();
 
 const assetsRouter = Router();
 
@@ -18,5 +20,7 @@ assetsRouter.post(
   }),
   createAssetController.handle,
 );
+
+assetsRouter.get('/', listAssetsController.handle);
 
 export default assetsRouter;

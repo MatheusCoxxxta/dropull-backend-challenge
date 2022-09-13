@@ -1,3 +1,4 @@
+import Nft from '@modules/asset/infra/typeorm/entities/Nft';
 import { DataSource } from 'typeorm';
 
 import Assets from '../../../modules/asset/infra/typeorm/entities/Assets';
@@ -11,7 +12,7 @@ export const AppDataSource = new DataSource({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
   logging: false,
-  entities: [Assets],
+  entities: [Assets, Nft],
   subscribers: [],
   migrations: [],
 });

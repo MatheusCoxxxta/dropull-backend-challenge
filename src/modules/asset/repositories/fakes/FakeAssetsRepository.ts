@@ -4,6 +4,7 @@ import IAssetsRepository from '@modules/asset/use-cases/ports/IAssetsRepository'
 
 export default class FakeAssetsRepository implements IAssetsRepository {
   private asset: IAsset[] = [];
+
   save({
     name,
     description,
@@ -21,5 +22,9 @@ export default class FakeAssetsRepository implements IAssetsRepository {
     this.asset.push(asset);
 
     return Promise.resolve(asset);
+  }
+
+  listAll(): Promise<IAsset[]> {
+    return Promise.resolve(this.asset);
   }
 }

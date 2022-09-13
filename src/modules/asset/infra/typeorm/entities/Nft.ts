@@ -20,7 +20,7 @@ export default class Nft implements INft {
   @Generated('uuid')
   token: string;
 
-  @Column()
+  @Column({ select: false })
   assetId: string;
 
   @ManyToOne(() => Assets, (asset) => asset.nfts, {

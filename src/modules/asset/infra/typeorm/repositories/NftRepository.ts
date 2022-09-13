@@ -12,6 +12,6 @@ export default class NftRepository implements INftRepository {
   }
 
   async listAll(): Promise<Array<INft>> {
-    return this.repository.find();
+    return this.repository.find({ relations: ['asset'] });
   }
 }

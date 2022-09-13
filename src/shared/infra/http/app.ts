@@ -1,3 +1,5 @@
+import 'reflect-metadata';
+
 import AppError from '@shared/errors/AppError';
 import express, { NextFunction, Request, Response } from 'express';
 

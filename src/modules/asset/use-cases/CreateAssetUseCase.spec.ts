@@ -1,10 +1,18 @@
+import FakeAssetManager from '@shared/container/providers/AssetManager/fakes/FakeAssetManager';
+import FakeAssetRepository from '../repositories/fakes/FakeAssetsRepository';
 import CreateAssetUseCase from './CreateAssetUseCase';
+import IAssetManager from './ports/IAssetManager';
+import IAssetsRepository from './ports/IAssetsRepository';
 
 let createAssetUseCase: CreateAssetUseCase;
+let assetsRepository: IAssetsRepository;
+let assetManager: IAssetManager;
 
 describe('CreateAssetUseCase', () => {
+  assetManager = new FakeAssetManager();
+  assetsRepository = new FakeAssetRepository();
   beforeEach(() => {
-    createAssetUseCase = new CreateAssetUseCase();
+    createAssetUseCase = new CreateAssetUseCase(assetsRepository, assetManager);
   });
 
   it('should break due to validation: name', async () => {
@@ -12,7 +20,7 @@ describe('CreateAssetUseCase', () => {
       await createAssetUseCase.execute({
         name: '',
         description: 'Description here',
-        imageUrl: 'https://picsum.photos/200/300',
+        image: 'https://picsum.photos/200/300',
       });
     } catch (error: any) {
       expect(error.message).toBe('Name is too short!');
@@ -24,7 +32,7 @@ describe('CreateAssetUseCase', () => {
       await createAssetUseCase.execute({
         name: 'My New Asset',
         description: '',
-        imageUrl: 'https://picsum.photos/200/300',
+        image: 'https://picsum.photos/200/300',
       });
     } catch (error: any) {
       expect(error.message).toBe('Description is too short!');
@@ -36,12 +44,20 @@ describe('CreateAssetUseCase', () => {
       await createAssetUseCase.execute({
         name: 'My New Asset',
         description: 'Description here',
-        imageUrl: '',
+        image: '',
       });
     } catch (error: any) {
       expect(error.message).toBe('Image URL is required');
     }
   });
 
-  it('should successfully create an asset');
+  it('should successfully create an asset', async () => {
+    const asset = await createAssetUseCase.execute({
+      name: 'My New Asset',
+      description: 'Description here',
+      image: 'https://picsum.photos/200/300',
+    });
+
+    expect(asset).toHaveProperty('tokenIpfs');
+  });
 });

@@ -15,7 +15,7 @@ describe('CreateAssetUseCase', () => {
         imageUrl: 'https://picsum.photos/200/300',
       });
     } catch (error: any) {
-      expect(error.message).toBe('Name is required!');
+      expect(error.message).toBe('Name is too short!');
     }
   });
 

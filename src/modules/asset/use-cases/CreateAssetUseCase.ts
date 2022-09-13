@@ -2,7 +2,7 @@ import AppError from '@shared/errors/AppError';
 import ICreateAssetDto from '../dtos/ICreateAssetDto';
 import Asset from '../entities/Asset';
 import IAsset from '../entities/IAsset';
-import IUseCase from './IUseCase';
+import IUseCase from './ports/IUseCase';
 import IAssetManager from './ports/IAssetManager';
 import IAssetsRepository from './ports/IAssetsRepository';
 

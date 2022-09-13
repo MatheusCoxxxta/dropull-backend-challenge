@@ -1,19 +1,13 @@
+import FakeAssetsRepository from '@modules/asset/repositories/fakes/FakeAssetsRepository';
 import CreateAssetUseCase from '@modules/asset/use-cases/CreateAssetUseCase';
 import IAssetManager from '@modules/asset/use-cases/ports/IAssetManager';
 import IAssetsRepository from '@modules/asset/use-cases/ports/IAssetsRepository';
 import AssetManager from '@shared/container/providers/AssetManager';
+import FakeAssetManager from '@shared/container/providers/AssetManager/fakes/FakeAssetManager';
 import { Request, Response } from 'express';
 import AssetsRepository from '../../typeorm/repositories/AssetsRepository';
 
 export default class CreateAssetController {
-  private assetManager: IAssetManager;
-  private assetsRepository: IAssetsRepository;
-
-  constructor() {
-    this.assetsRepository = new AssetsRepository();
-    this.assetManager = new AssetManager();
-  }
-
   /**
    * TO DO:
    * Define IRequest interface concating Request from Express + files
@@ -22,13 +16,13 @@ export default class CreateAssetController {
 
   async handle(request: any, response: Response): Promise<Response> {
     const useCase = new CreateAssetUseCase(
-      this.assetsRepository,
-      this.assetManager,
+      new AssetsRepository(),
+      new AssetManager(),
     );
 
     const { name, description } = request.body;
 
-    const image = request.files[0].location;
+    const image = request.file.filename;
 
     const asset = await useCase.execute({
       name: name || '',

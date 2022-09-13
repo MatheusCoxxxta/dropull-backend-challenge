@@ -3,4 +3,6 @@ import { Router } from 'express';
 
 const router = Router();
 
-router.use('/asset', assetsRouter);
+router.use('/assets', assetsRouter);
+
+export default router;

@@ -4,6 +4,7 @@ import 'dotenv/config';
 import AppError from '@shared/errors/AppError';
 import express, { NextFunction, Request, Response } from 'express';
 import router from './routes';
+import '../typeorm';
 
 const app = express();
 

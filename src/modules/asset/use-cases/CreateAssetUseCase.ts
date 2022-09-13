@@ -25,18 +25,18 @@ export default class CreateAssetUseCase implements IUseCase {
   }: ICreateAssetDto): Promise<CreateAssetUseCaseResponse> {
     const validAsset = Asset.create(name, description, image);
 
-    const tokenIpfs = await this.assetManager.pinFile(validAsset.imageUrl);
-
     let asset: IAsset = {} as IAsset;
 
     try {
+      const tokenIpfs = await this.assetManager.pinFile(validAsset.imageUrl);
+
       asset = await this.assetsRepository.save({
         name: validAsset.name,
         description: validAsset.description,
         tokenIpfs,
         imageUrl: validAsset.imageUrl,
       });
-    } catch (error) {}
+    } catch (error: any) {}
 
     return {
       id: asset.id,

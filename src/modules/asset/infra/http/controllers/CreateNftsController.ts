@@ -12,7 +12,10 @@ export default class CreateNftsController {
    */
 
   async handle(request: Request, response: Response): Promise<Response> {
-    const useCase = new CreateNftsUseCase(new NftRepository());
+    const useCase = new CreateNftsUseCase(
+      new NftRepository(),
+      new AssetsRepository(),
+    );
 
     const { amount, assetId } = request.body;
 

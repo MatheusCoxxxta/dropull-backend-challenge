@@ -27,4 +27,8 @@ export default class FakeAssetsRepository implements IAssetsRepository {
   listAll(): Promise<IAsset[]> {
     return Promise.resolve(this.asset);
   }
+
+  findById(id: string): Promise<IAsset> {
+    return Promise.resolve(this.asset[0]);
+  }
 }

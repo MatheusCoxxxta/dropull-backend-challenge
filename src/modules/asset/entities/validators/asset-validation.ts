@@ -1,13 +1,16 @@
 import constants from '@modules/asset/constants';
 
+const MIN_NAME_LENGTH = 1;
+const MIN_DESCRIPTION_LENGTH = 1;
+
 function hasMinNameLengthRequired(name: string): boolean {
-  if (name.length < 1) return false;
+  if (name.length < MIN_NAME_LENGTH) return false;
 
   return true;
 }
 
 function hasMinDescriptionRequired(description: string): boolean {
-  if (description.length < 1) return false;
+  if (description.length < MIN_DESCRIPTION_LENGTH) return false;
 
   return true;
 }

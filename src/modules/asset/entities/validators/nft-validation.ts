@@ -1,7 +1,9 @@
 import constants from '@modules/asset/constants';
 
+const MIN_AMOUNT = 1;
+
 function hasMinAmountRequired(amount: number): boolean {
-  if (amount < 1) return false;
+  if (amount < MIN_AMOUNT) return false;
 
   return true;
 }

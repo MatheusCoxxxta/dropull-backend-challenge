@@ -1,4 +1,5 @@
 import AppError from '@shared/errors/AppError';
+import errorHandler from '@shared/errors/ErrorHandler';
 import ICreateAssetDto from '../dtos/ICreateAssetDto';
 import Asset from '../entities/Asset';
 import IAsset from '../entities/IAsset';
@@ -6,7 +7,7 @@ import IUseCase from './ports/IUseCase';
 import IAssetManager from './ports/IAssetManager';
 import IAssetsRepository from './ports/IAssetsRepository';
 
-interface CreateAssetUseCaseResponse {
+interface ICreateAssetUseCaseResponse {
   tokenIpfs: string;
   name: string;
   id: string;
@@ -22,7 +23,7 @@ export default class CreateAssetUseCase implements IUseCase {
     name,
     description,
     image,
-  }: ICreateAssetDto): Promise<CreateAssetUseCaseResponse> {
+  }: ICreateAssetDto): Promise<ICreateAssetUseCaseResponse> {
     const validAsset = Asset.validate(name, description, image);
 
     let asset: IAsset = {} as IAsset;
@@ -36,7 +37,11 @@ export default class CreateAssetUseCase implements IUseCase {
         tokenIpfs,
         imageUrl: validAsset.imageUrl,
       });
-    } catch (error: any) {}
+    } catch (error: any) {
+      const { errorMessage } = errorHandler(error);
+
+      throw new AppError(errorMessage);
+    }
 
     return {
       id: asset.id,

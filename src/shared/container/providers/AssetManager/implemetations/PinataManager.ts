@@ -1,8 +1,8 @@
 import IAssetManager from '@modules/asset/use-cases/ports/IAssetManager';
-import api from '../api/PinataServer';
 import FormData from 'form-data';
 import { resolve } from 'path';
 import fs from 'fs';
+import api from '../api/PinataServer';
 
 export default class PinataManager implements IAssetManager {
   async pinFile(path: string): Promise<string> {

@@ -10,8 +10,13 @@ export default class NftRepository implements INftRepository {
   constructor() {
     this.repository = AppDataSource.getRepository(Nft);
   }
-
   async listAll(): Promise<Array<INft>> {
     return this.repository.find({ relations: ['asset'] });
+  }
+
+  async save(assetId: string): Promise<INft> {
+    return this.repository.save({
+      assetId,
+    });
   }
 }

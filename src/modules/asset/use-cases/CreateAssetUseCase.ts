@@ -23,7 +23,7 @@ export default class CreateAssetUseCase implements IUseCase {
     description,
     image,
   }: ICreateAssetDto): Promise<CreateAssetUseCaseResponse> {
-    const validAsset = Asset.create(name, description, image);
+    const validAsset = Asset.validate(name, description, image);
 
     let asset: IAsset = {} as IAsset;
 

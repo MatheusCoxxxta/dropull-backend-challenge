@@ -15,7 +15,7 @@ export default class Asset {
     this._imageUrl = `static/files/${imageUrl}`;
   }
 
-  public static create(
+  public static validate(
     name: string,
     description: string,
     imageUrl: string,

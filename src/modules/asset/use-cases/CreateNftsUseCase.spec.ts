@@ -37,6 +37,17 @@ describe('CreateNftsUseCase', () => {
     }
   });
 
+  it("should break due asset doesn't exists", async () => {
+    try {
+      await createNftsUseCase.execute({
+        amount: 1,
+        assetId: 'wrong-id',
+      });
+    } catch (error: any) {
+      expect(error.message).toBe('Asset not found!');
+    }
+  });
+
   it('should successfully create 1 NFT', async () => {
     const asset = await createNftsUseCase.execute({
       amount: 1,

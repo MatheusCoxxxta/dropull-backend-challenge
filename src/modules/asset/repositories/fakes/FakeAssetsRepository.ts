@@ -3,7 +3,15 @@ import IAsset from '@modules/asset/entities/IAsset';
 import IAssetsRepository from '@modules/asset/use-cases/ports/IAssetsRepository';
 
 export default class FakeAssetsRepository implements IAssetsRepository {
-  private asset: IAsset[] = [];
+  private asset: IAsset[] = [
+    {
+      id: 'randon-id',
+      name: 'My Asset',
+      description: 'My Description',
+      imageUrl: 'www.image.com',
+      tokenIpfs: 'mytokenIpfs',
+    },
+  ];
 
   save({
     name,

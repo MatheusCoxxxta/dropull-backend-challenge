@@ -5,7 +5,7 @@ import IAssetsRepository from '@modules/asset/use-cases/ports/IAssetsRepository'
 export default class FakeAssetsRepository implements IAssetsRepository {
   private asset: IAsset[] = [
     {
-      id: 'randon-id',
+      id: 'my-asset-id',
       name: 'My Asset',
       description: 'My Description',
       imageUrl: 'www.image.com',
@@ -36,7 +36,9 @@ export default class FakeAssetsRepository implements IAssetsRepository {
     return Promise.resolve(this.asset);
   }
 
-  findById(id: string): Promise<IAsset> {
-    return Promise.resolve(this.asset[0]);
+  findById(id: string): Promise<IAsset | null> {
+    const foundAsset = this.asset.find((asset) => asset.id === id);
+
+    return Promise.resolve(foundAsset || null);
   }
 }

@@ -9,4 +9,5 @@ export default interface IAssetsRepository {
     tokenIpfs,
   }: IStoreAssetDto): Promise<IAsset>;
   listAll(): Promise<Array<IAsset>>;
+  findById(id: string): Promise<IAsset | null>;
 }

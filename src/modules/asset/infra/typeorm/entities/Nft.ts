@@ -10,14 +10,18 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import Assets from './Assets';
+import { v4 as uuidv4 } from 'uuid';
 
 @Entity('nft')
 export default class Nft implements INft {
+  constructor() {
+    if (!this.id) this.id = uuidv4();
+  }
+
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
-  @Generated('uuid')
   token: string;
 
   @Column({ select: false })

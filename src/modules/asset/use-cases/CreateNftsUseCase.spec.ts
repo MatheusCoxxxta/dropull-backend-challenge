@@ -1,19 +1,8 @@
 import FakeNftRepository from '../repositories/fakes/FakeNftRepository';
+import CreateNftsUseCase from './CreateNftsUseCase';
 import INftRepository from './ports/INftRepository';
 
 let nftRepository: INftRepository;
-
-interface ICreateNftsDtos {
-  amount: number;
-  assetId: string;
-}
-
-class CreateNftsUseCase {
-  constructor(private nftRepository: INftRepository) {}
-
-  async execute({ amount, assetId }: ICreateNftsDtos) {}
-}
-
 let createNftsUseCase: CreateNftsUseCase;
 
 describe('CreateNftsUseCase', () => {

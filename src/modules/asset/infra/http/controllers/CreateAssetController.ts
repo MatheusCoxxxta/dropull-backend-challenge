@@ -1,10 +1,6 @@
-import FakeAssetsRepository from '@modules/asset/repositories/fakes/FakeAssetsRepository';
 import CreateAssetUseCase from '@modules/asset/use-cases/CreateAssetUseCase';
-import IAssetManager from '@modules/asset/use-cases/ports/IAssetManager';
-import IAssetsRepository from '@modules/asset/use-cases/ports/IAssetsRepository';
 import AssetManager from '@shared/container/providers/AssetManager';
-import FakeAssetManager from '@shared/container/providers/AssetManager/fakes/FakeAssetManager';
-import { Request, Response } from 'express';
+import { Response } from 'express';
 import AssetsRepository from '../../typeorm/repositories/AssetsRepository';
 
 export default class CreateAssetController {

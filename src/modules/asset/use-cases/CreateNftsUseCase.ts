@@ -1,4 +1,5 @@
 import AppError from '@shared/errors/AppError';
+import constants from '../constants';
 import ICreateNftsDto from '../dtos/ICreateNftsDto';
 import INft from '../entities/INft';
 import Nft from '../entities/Nft';
@@ -17,7 +18,7 @@ export default class CreateNftsUseCase implements IUseCase {
 
     const asset = await this.assetsRepository.findById(validPayload.assetId);
 
-    if (!asset) throw new AppError('Asset not found!');
+    if (!asset) throw new AppError(constants.ASSET_NOT_FOUND);
 
     let nftList: Array<INft> = [];
 

@@ -1,3 +1,5 @@
+import constants from '@modules/asset/constants';
+
 function hasMinNameLengthRequired(name: string): boolean {
   if (name.length < 1) return false;
 
@@ -21,10 +23,10 @@ export function mustAttentionIn(
   description: string,
   imageUrl: string,
 ): string | void {
-  if (!hasMinNameLengthRequired(name)) return 'Name is too short!';
+  if (!hasMinNameLengthRequired(name)) return constants.NAME_SHORT_WARNING;
 
   if (!hasMinDescriptionRequired(description))
-    return 'Description is too short!';
+    return constants.DESCRIPTION_SHORT_WARNING;
 
-  if (!hasImageUrl(imageUrl)) return 'Image URL is required';
+  if (!hasImageUrl(imageUrl)) return constants.IMAGE_REQUIRED_WARNING;
 }

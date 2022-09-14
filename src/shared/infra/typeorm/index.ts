@@ -3,7 +3,7 @@ import { DataSource } from 'typeorm';
 
 import Assets from '../../../modules/asset/infra/typeorm/entities/Assets';
 
-export const AppDataSource = new DataSource({
+const AppDataSource = new DataSource({
   synchronize: true, // Note: using sync only to make easy to run app on guest PCs.
   type: 'postgres',
   host: process.env.DB_HOST,
@@ -19,6 +19,10 @@ export const AppDataSource = new DataSource({
 
 AppDataSource.initialize()
   .then(() => {
+    /* eslint-disable no-console */
     console.log('Database connected!');
   })
-  .catch((error) => console.log(error));
+  /* eslint-disable no-console */
+  .catch((error) => console.error(error));
+
+export default AppDataSource;

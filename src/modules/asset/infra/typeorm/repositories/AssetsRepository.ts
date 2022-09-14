@@ -1,7 +1,7 @@
 import IStoreAssetDto from '@modules/asset/dtos/IStoreAssetDto';
 import IAsset from '@modules/asset/entities/IAsset';
 import IAssetsRepository from '@modules/asset/use-cases/ports/IAssetsRepository';
-import { AppDataSource } from '@shared/infra/typeorm';
+import AppDataSource from '@shared/infra/typeorm';
 import { Repository } from 'typeorm';
 import Assets from '../entities/Assets';
 

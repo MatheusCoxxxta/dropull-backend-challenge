@@ -1,14 +1,18 @@
+import FakeAssetsRepository from '../repositories/fakes/FakeAssetsRepository';
 import FakeNftRepository from '../repositories/fakes/FakeNftRepository';
 import CreateNftsUseCase from './CreateNftsUseCase';
+import IAssetsRepository from './ports/IAssetsRepository';
 import INftRepository from './ports/INftRepository';
 
 let nftRepository: INftRepository;
+let assetsRepository: IAssetsRepository;
 let createNftsUseCase: CreateNftsUseCase;
 
 describe('CreateNftsUseCase', () => {
   beforeEach(() => {
     nftRepository = new FakeNftRepository();
-    createNftsUseCase = new CreateNftsUseCase(nftRepository);
+    assetsRepository = new FakeAssetsRepository();
+    createNftsUseCase = new CreateNftsUseCase(nftRepository, assetsRepository);
   });
 
   it('should break due validation: amount', async () => {

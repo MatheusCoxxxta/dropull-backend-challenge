@@ -1,3 +1,4 @@
+import IStoreNftDto from '@modules/asset/dtos/IStoreNftDto';
 import INft from '@modules/asset/entities/INft';
 import INftRepository from '@modules/asset/use-cases/ports/INftRepository';
 import { AppDataSource } from '@shared/infra/typeorm';
@@ -14,9 +15,15 @@ export default class NftRepository implements INftRepository {
     return this.repository.find({ relations: ['asset'] });
   }
 
-  async save(assetId: string): Promise<INft> {
-    return this.repository.save({
+  async create(assetId: string): Promise<INft> {
+    const nft = this.repository.create({
       assetId,
     });
+
+    return nft;
+  }
+
+  async save(nft: IStoreNftDto): Promise<INft> {
+    return this.repository.save(nft);
   }
 }

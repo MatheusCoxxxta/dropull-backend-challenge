@@ -7,8 +7,8 @@
  */
 
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { pathsToModuleNameMapper } from "ts-jest";
-import { compilerOptions } from "./tsconfig.json";
+import { pathsToModuleNameMapper } from 'ts-jest';
+import { compilerOptions } from './tsconfig.json';
 
 export default {
   // All imported modules in your tests should be mocked automatically
@@ -33,11 +33,11 @@ export default {
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
 
-  collectCoverageFrom: ["<rootDir>/src/modules/**/services/*.ts"],
+  collectCoverageFrom: ['<rootDir>/src/modules/**/use-cases/*.ts'],
 
   // The directory where Jest should output its coverage files
 
-  coverageDirectory: "coverage",
+  coverageDirectory: 'coverage',
 
   // An array of regexp pattern strings used to skip coverage collection
 
@@ -53,7 +53,7 @@ export default {
 
   // A list of reporter names that Jest uses when writing coverage reports
 
-  coverageReporters: ["text-summary", "lcov"],
+  coverageReporters: ['text-summary', 'lcov'],
 
   // An object that configures minimum threshold enforcement for coverage results
 
@@ -116,7 +116,7 @@ export default {
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
 
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
-    prefix: "<rootDir>/src/",
+    prefix: '<rootDir>/src/',
   }),
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
@@ -133,7 +133,7 @@ export default {
 
   // A preset that is used as a base for Jest's configuration
 
-  preset: "ts-jest",
+  preset: 'ts-jest',
 
   // Run tests from one or more projects
 
@@ -181,7 +181,7 @@ export default {
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
 
-  setupFilesAfterEnv: ["./src/config/jest.ts"],
+  setupFilesAfterEnv: ['./src/config/jest.ts'],
 
   // The number of seconds after which a test is considered as slow and reported as such in the results.
 
@@ -193,7 +193,7 @@ export default {
 
   // The test environment that will be used for testing
 
-  testEnvironment: "node",
+  testEnvironment: 'node',
 
   // Options that will be passed to the testEnvironment
 
@@ -205,7 +205,7 @@ export default {
 
   // The glob patterns Jest uses to detect test files
 
-  testMatch: ["**/*.spec.ts"],
+  testMatch: ['**/*.spec.ts'],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
 

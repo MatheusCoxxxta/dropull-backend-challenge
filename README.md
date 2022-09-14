@@ -29,6 +29,11 @@ Run tests:
 yarn test
 ```
 
+### TO DO / Improvements / Points to discuss
+
+* Define IRequest interface concating Request from Express + files
+* Use Tsyringe for Dependency Injection instead of scratch injection
+
 
 ### Docs
 

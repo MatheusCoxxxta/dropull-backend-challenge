@@ -1,7 +1,6 @@
 import FakeNftRepository from '../repositories/fakes/FakeNftRepository';
 import ListNftUseCase from './ListNftUseCase';
 import INftRepository from './ports/INftRepository';
-import IUseCase from './ports/IUseCase';
 
 let nftRepository: INftRepository;
 let listNftUseCase: ListNftUseCase;

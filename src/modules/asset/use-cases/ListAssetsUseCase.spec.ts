@@ -1,7 +1,6 @@
 import ListAssetsUseCase from './ListAssetsUseCase';
 import IAssetsRepository from './ports/IAssetsRepository';
 import FakeAssetRepository from '../repositories/fakes/FakeAssetsRepository';
-import IAsset from '../entities/IAsset';
 
 let listAssetsUseCase: ListAssetsUseCase;
 let assetsRepository: IAssetsRepository;

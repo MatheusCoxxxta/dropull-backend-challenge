@@ -26,6 +26,7 @@ export default class CreateNftsUseCase implements IUseCase {
       const nft = await this.nftRepository.create(validPayload.assetId);
 
       const storedNft = await this.nftRepository.save({
+        id: nft.id,
         assetId: validPayload.assetId,
         token: `${asset.tokenIpfs}-${nft.id}`,
       });

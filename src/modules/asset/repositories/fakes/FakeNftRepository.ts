@@ -16,4 +16,22 @@ export default class FakeNftRepository implements INftRepository {
   listAll(): Promise<Array<INft>> {
     return Promise.resolve(this.nft);
   }
+
+  save(assetId: string): Promise<INft> {
+    const nft = {
+      id: 'my-id',
+      token: 'my-token',
+      asset: {
+        id: assetId,
+        name: 'My Asset',
+        description: 'My Description',
+        imageUrl: 'https://picsum.photos/200/300',
+        tokenIpfs: 'my-tokenIpfs',
+      },
+    };
+
+    this.nft.push(nft);
+
+    return Promise.resolve(nft);
+  }
 }

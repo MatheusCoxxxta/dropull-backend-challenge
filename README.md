@@ -3,22 +3,27 @@
 ### Setup
 Create `.env` on project **root** and paste `.env.example` **content** into it.
 
+Using database from docker:
+```bash
+$ docker-compose up -d #docker compose required
+```
+
 ### Installing
 
 Clone:
 ```
-git clone https://github.com/MatheusCoxxxta/dropull-backend-challenge.git
+$ git clone https://github.com/MatheusCoxxxta/dropull-backend-challenge.git
 ```
 
 Install dependencies:
 ```
-yarn
+$ yarn
 ```
 ### Running
 
 Run application on localhost:
 ```
-yarn dev:server
+$ yarn dev:server
 ```
 
 
@@ -26,7 +31,7 @@ yarn dev:server
 
 Run tests:
 ```
-yarn test
+$ yarn test
 ```
 
 ### TO DO / Improvements / Points to discuss
